@@ -6,7 +6,6 @@
 Python codes for robotics algorithm.
 
 
-
 # Table of Contents
    * [What is this?](#what-is-this)
    * [Requirements](#requirements)
@@ -19,6 +18,7 @@ Python codes for robotics algorithm.
    * [Mapping](#mapping)
       * [Gaussian grid map](#gaussian-grid-map)
       * [Ray casting grid map](#ray-casting-grid-map)
+      * [k-means object clustering](#k-means-object-clustering)
    * [SLAM](#slam)
       * [Iterative Closest Point (ICP) Matching](#iterative-closest-point-icp-matching)
       * [EKF SLAM](#ekf-slam)
@@ -47,12 +47,14 @@ Python codes for robotics algorithm.
          * [RRT* with dubins path](#rrt-with-dubins-path-1)
          * [RRT* with reeds-sheep path](#rrt-with-reeds-sheep-path)
          * [Closed Loop RRT*](#closed-loop-rrt)
+         * [LQR-RRT*](#lqr-rrt)
       * [Cubic spline planning](#cubic-spline-planning)
       * [B-Spline planning](#b-spline-planning)
       * [Bezier path planning](#bezier-path-planning)
       * [Quintic polynomials planning](#quintic-polynomials-planning)
       * [Dubins path planning](#dubins-path-planning)
       * [Reeds Shepp planning](#reeds-shepp-planning)
+      * [LQR based path planning](#lqr-based-path-planning)
       * [Optimal Trajectory in a Frenet Frame](#optimal-trajectory-in-a-frenet-frame)
    * [Path tracking](#path-tracking)
       * [Pure pursuit tracking](#pure-pursuit-tracking)
@@ -184,6 +186,12 @@ This is a 2D gaussian grid mapping example.
 This is a 2D ray casting grid mapping example.
 
 ![2](https://github.com/AtsushiSakai/PythonRobotics/raw/master/Mapping/raycasting_grid_map/animation.gif)
+
+## k-means object clustering
+
+This is a 2D object clustering with k-means algorithm.
+
+![2](https://github.com/AtsushiSakai/PythonRobotics/raw/master/Mapping/kmeans_clustering/animation.gif)
 
 
 # SLAM
@@ -456,6 +464,21 @@ Autonomous Urban Driving](http://acl.mit.edu/papers/KuwataTCST09.pdf)
 
 - [[1601.06326] Sampling-based Algorithms for Optimal Motion Planning Using Closed-loop Prediction](https://arxiv.org/abs/1601.06326)
 
+### LQR-RRT\*
+
+This is a path planning simulation with LQR-RRT\*.
+
+A double integrator motion model is used for LQR local planner.
+
+![LQRRRT](https://github.com/AtsushiSakai/PythonRobotics/raw/master/PathPlanning/LQRRRTStar/animation.gif)
+
+Ref:
+
+- [LQR\-RRT\*: Optimal Sampling\-Based Motion Planning with Automatically Derived Extension Heuristics](http://lis.csail.mit.edu/pubs/perez-icra12.pdf)
+
+- [MahanFathi/LQR\-RRTstar: LQR\-RRT\* method is used for random motion planning of a simple pendulum in it's phase plot](https://github.com/MahanFathi/LQR-RRTstar)
+
+
 ## Cubic spline planning
 
 A sample code for cubic path planning.
@@ -538,6 +561,13 @@ Ref:
 - [optimal paths for a car that goes both forwards and backwards](https://pdfs.semanticscholar.org/932e/c495b1d0018fd59dee12a0bf74434fac7af4.pdf)
 
 - [ghliu/pyReedsShepp: Implementation of Reeds Shepp curve\.](https://github.com/ghliu/pyReedsShepp)
+
+
+## LQR based path planning
+
+A sample code using LQR based path planning for double integrator model.
+
+![RSPlanning](https://github.com/AtsushiSakai/PythonRobotics/raw/master/PathPlanning/LQRPlanner/animation.gif?raw=true)
 
 
 ## Optimal Trajectory in a Frenet Frame 
@@ -648,6 +678,10 @@ A small PR like bug fix is welcome.
 
 If your PR is merged multiple times, I will add your account to the author list.
 
+You can support financially this project via PayPal.
+
+[![Support via PayPal](https://cdn.rawgit.com/twolfson/paypal-github-button/1.0.0/dist/button.svg)](https://www.paypal.me/myenigmapay/)
+
 # Authors
 
 - [Atsushi Sakai](https://github.com/AtsushiSakai/) ([@Atsushi_twi](https://twitter.com/Atsushi_twi))
@@ -655,6 +689,9 @@ If your PR is merged multiple times, I will add your account to the author list.
 - [Daniel Ingram](https://github.com/daniel-s-ingram)
 
 - [Joe Dinius](https://github.com/jwdinius)
+
+
+
 
 
 
