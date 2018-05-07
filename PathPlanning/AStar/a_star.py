@@ -140,21 +140,30 @@ def calc_obstacle_map(ox, oy, reso, vr):
 
     xwidth = round(maxx - minx)
     ywidth = round(maxy - miny)
-    #  print("xwidth:", xwidth)
-    #  print("ywidth:", ywidth)
+    print("xwidth:", xwidth)
+    print("ywidth:", ywidth)
 
     # obstacle map generation
     obmap = [[False for i in range(xwidth)] for i in range(ywidth)]
+    '''
     for ix in range(xwidth):
         x = ix + minx
         for iy in range(ywidth):
             y = iy + miny
             #  print(x, y)
             for iox, ioy in zip(ox, oy):
-                d = math.sqrt((iox - x)**2 + (ioy - y)**2)
-                if d <= vr / reso:
+                d = (iox - x)**2 + (ioy - y)**2
+                if d <= (vr / reso)**2:
                     obmap[ix][iy] = True
                     break
+    '''
+    whole_dist = vr / reso
+    for iox, ioy in zip(ox, oy):
+        for i in range(round(iox - whole_dist),round(iox + whole_dist) + 1):
+            for j in range(round(ioy - whole_dist), round(ioy + whole_dist) + 1):
+                if(0 > i or xwidth < i + 1 or 0 > j or ywidth < j + 1):
+                    continue
+                obmap[i][j] = True
 
     return obmap, minx, miny, maxx, maxy, xwidth, ywidth
 
@@ -208,6 +217,8 @@ def main():
     for i in range(40):
         ox.append(40.0)
         oy.append(60.0 - i)
+
+    print(ox)
 
     if show_animation:
         plt.plot(ox, oy, ".k")
